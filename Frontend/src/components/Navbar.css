@@ -29,7 +29,15 @@ body {
   font-family: Inter, system-ui;
   font-weight: 300;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-  transition: background 0.3s ease, padding 0.3s ease;
+  transition: transform 0.3s ease-in-out, background 0.3s ease, padding 0.3s ease;
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar.show {
+  transform: translateY(0);
 }
 
 .navbar.scrolled {
