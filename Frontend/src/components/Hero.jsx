@@ -83,7 +83,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Professional Scroll-Down Button at bottom center */}
+
         <div
           className="scroll-down"
           onClick={() => {
