@@ -1,7 +1,7 @@
 import profile from "../assets/profile.jpeg";
 import "./Hero.css";
 import resume from "../assets/Monika (Resume).pdf";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 
 const Hero = () => {
@@ -81,6 +81,17 @@ const Hero = () => {
             <p>Entry-level</p>
             <span>MCA Student</span>
           </div>
+        </div>
+
+        {/* Professional Scroll-Down Button at bottom center */}
+        <div
+          className="scroll-down"
+          onClick={() => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+          }}
+          aria-label="Scroll to Bottom"
+        >
+          <FaChevronDown className="scroll-arrow" />
         </div>
       </div>
     </header>
