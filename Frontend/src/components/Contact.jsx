@@ -1,45 +1,78 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { sendContact } from "../services/api";
 import "./Contact.css";
 
 export default function Contact() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+  }, []);
 
   const submit = async (e) => {
     e.preventDefault();
     await sendContact(data);
     alert("Message sent successfully");
+
+    setData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section ref={sectionRef} id="contact" className="contact-section">
       <div className="contact-left">
-        <h2 className="contact-heading">Contact Me</h2>
+        <h2 className="contact-heading">Contact</h2>
         <p className="contact-description">
-          I’m open to new opportunities and collaborations. 
-          Feel free to send me a message and I will get back to you as soon as possible.
+        I’m open to full-time roles, internships, and collaborative projects.
+        Feel free to reach out for opportunities, discussions, or professional inquiries, and I’ll respond as soon as possible.
         </p>
       </div>
+
       <div className="contact-right">
         <form className="contact-form" onSubmit={submit}>
           <input
             className="contact-input"
             placeholder="Name"
+            value={data.name}
             onChange={(e) => setData({ ...data, name: e.target.value })}
             required
           />
+
           <input
             className="contact-input"
             placeholder="Email"
+            value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
             required
           />
+
           <textarea
             className="contact-textarea"
             placeholder="Message"
+            value={data.message}
             onChange={(e) => setData({ ...data, message: e.target.value })}
             required
           />
+
           <button className="contact-btn">
             <span>Send Message</span>
           </button>

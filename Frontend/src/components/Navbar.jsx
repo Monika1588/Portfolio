@@ -32,7 +32,7 @@ const Navbar = () => {
                 <span className="navbar-logo">Monika Verma</span>
             </div>
 
-            {/* Hamburger */}
+ 
             <div
                 className={`hamburger ${menuOpen ? "open" : ""}`}
                 onClick={() => setMenuOpen(!menuOpen)}
