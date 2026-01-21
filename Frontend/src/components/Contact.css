@@ -130,14 +130,15 @@
       color: #0f1117;
       font-weight: 600;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 14px 24px;
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
       overflow: hidden;
       position: relative;
-      
+      align-self: center;
+      width: 65%;
     }
     
     .contact-btn span {

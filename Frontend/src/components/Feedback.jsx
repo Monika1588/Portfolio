@@ -65,6 +65,18 @@ export default function Feedback() {
       <h2 className="section-title">Feedback</h2>
 
       <form className="feedback-form" onSubmit={submit}>
+        <p className="feedback-intro">
+
+          <strong><h3>Wait, before you go…</h3></strong>
+          <i> I’d like to hear your valuable feedback on my portfolio experience.</i>
+        </p>
+        
+        <StarRating
+          rating={form.rating}
+          setRating={(value) => setForm({ ...form, rating: value })}
+          error={error}
+          clearError={() => setError("")}
+        />
         <input
           type="text"
           placeholder="Your Name"
@@ -73,12 +85,7 @@ export default function Feedback() {
           required
         />
 
-        <StarRating
-          rating={form.rating}
-          setRating={(value) => setForm({ ...form, rating: value })}
-          error={error}
-          clearError={() => setError("")}
-        />
+
 
         <textarea
           placeholder="Your Feedback"
@@ -98,7 +105,7 @@ export default function Feedback() {
 
             <h3>Feedback Submitted</h3>
             <p>
-              Thank you for taking the time to share your feedback.  
+              Thank you for taking the time to share your feedback.
               Your response is valuable and helps improve the overall experience.
             </p>
 
