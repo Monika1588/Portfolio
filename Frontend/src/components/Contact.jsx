@@ -9,6 +9,8 @@ export default function Contact() {
     message: "",
   });
 
+  const [showPopup, setShowPopup] = useState(false);
+
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -31,10 +33,16 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
-    await sendContact(data);
-    alert("Message sent successfully");
 
-    setData({ name: "", email: "", message: "" });
+    try {
+      await sendContact(data);
+
+      setShowPopup(true);
+
+      setData({ name: "", email: "", message: "" });
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -42,8 +50,8 @@ export default function Contact() {
       <div className="contact-left">
         <h2 className="contact-heading">Contact</h2>
         <p className="contact-description">
-        I’m open to full-time roles, internships, and collaborative projects.
-        Feel free to reach out for opportunities, discussions, or professional inquiries, and I’ll respond as soon as possible.
+          I’m open to full-time roles, internships, and collaborative projects.
+          Feel free to reach out for opportunities, discussions, or professional inquiries, and I’ll respond as soon as possible.
         </p>
       </div>
 
@@ -78,6 +86,27 @@ export default function Contact() {
           </button>
         </form>
       </div>
+
+      {showPopup && (
+        <div className="thankyou-overlay">
+          <div className="thankyou-card">
+            <div className="thankyou-icon">✓</div>
+
+            <h3>Message Sent Successfully</h3>
+            <p>
+              Thank you for reaching out.  
+              Your message has been delivered, and I’ll get back to you as soon as possible.
+            </p>
+
+            <button
+              className="thankyou-btn"
+              onClick={() => setShowPopup(false)}
+            >
+              Got it 👍
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

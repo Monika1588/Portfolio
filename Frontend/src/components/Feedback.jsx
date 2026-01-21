@@ -29,7 +29,6 @@ const StarRating = ({ rating, setRating, error, clearError }) => {
   );
 };
 
-
 export default function Feedback() {
   const [form, setForm] = useState({
     name: "",
@@ -38,6 +37,8 @@ export default function Feedback() {
   });
 
   const [error, setError] = useState("");
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -49,7 +50,9 @@ export default function Feedback() {
 
     try {
       await sendFeedback(form);
-      alert("Thank you for your feedback!");
+
+      setShowPopup(true);
+
       setForm({ name: "", rating: 0, message: "" });
       setError("");
     } catch (err) {
@@ -87,6 +90,27 @@ export default function Feedback() {
           <span>Send Feedback</span>
         </button>
       </form>
+
+      {showPopup && (
+        <div className="thankyou-overlay">
+          <div className="thankyou-card">
+            <div className="thankyou-icon">✓</div>
+
+            <h3>Feedback Submitted</h3>
+            <p>
+              Thank you for taking the time to share your feedback.  
+              Your response is valuable and helps improve the overall experience.
+            </p>
+
+            <button
+              className="thankyou-btn"
+              onClick={() => setShowPopup(false)}
+            >
+              Okay 🙌
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
