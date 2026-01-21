@@ -90,24 +90,75 @@
 .footer-social h4{
   color:#cfa859
 }
-/* -Social- */
+/* -Social Icons + Email- */
 .social-icons {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
 }
 
-.social-icons a {
-  text-decoration: none;
+/* Footer Socials + Email Icon */
+.social-icons {
+  display: flex;
+  gap: 18px;
+}
+
+/* Links and Email button */
+.social-icons a,
+.social-icons .email-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 197, 24, 0.12);
+  border: 1.5px solid rgba(245, 197, 24, 0.45);
   color: #bdbdbd;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative; /* for copy message */
 }
 
-.social-icons a:hover {
-  color: #cfa859;
-  transform: translateX(4px);
+/* Hover effect */
+.social-icons a:hover,
+.social-icons .email-btn:hover {
+  background: #cfa859;
+  color: #0f0f0f;
+  transform: translateY(-6px) scale(1.1);
+  box-shadow: 0 12px 35px #C0C0C0;
 }
+
+/* Email copied message */
+.copy-msg {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111219;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Optional fade-out animation for copied message */
+.email-btn .copy-msg {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 
 /* -Bottom -*/
 .footer-bottom {

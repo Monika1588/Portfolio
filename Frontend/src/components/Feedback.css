@@ -91,51 +91,46 @@
     cursor: pointer;
   }
 
-  .feedback-form button {
-    margin-top: 10px;
-    padding: 14px;
-    border-radius: 14px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    background: linear-gradient(135deg, #cfa859, #e6c77b);
-    color: #000;
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
-  }
+.feedback-form button {
+  display: inline-block;
+  background: #cfa859;
+  color: #0f1117;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
 
-  .feedback-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(207, 168, 89, 0.4);
-  }
+.feedback-form button span {
+  position: relative;
+  z-index: 2;
+}
 
-  .feedback-form button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent
-    );
-    transition: 0.6s;
-  }
-  
-  .feedback-form button:hover::before {
-    left: 100%;
-  }
+.feedback-form button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
 
-  .feedback-form button span {
-    position: relative;
-    z-index: 1;
-  }
-  
+.feedback-form button:hover::after {
+  left: 0;
+}
+
+.feedback-form button:hover {
+  background: #fff;
+  color: #0f1117;
+}
+
   .star-rating {
     display: flex;
     gap: 12px;
