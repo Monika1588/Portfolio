@@ -42,9 +42,10 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: "https://portfolio-1-nfdx.onrender.com",
-  credentials: true
+  origin: "https://magenta-lollipop-6c2481.netlify.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
 }));
+
 app.use(express.json());
 
 app.use("/api/projects", require("./routes/projectRoutes"));
