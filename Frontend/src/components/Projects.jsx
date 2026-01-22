@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { getProjects } from "../services/api";
 import "./Projects.css";
 
 import project1 from "../assets/project1.png";
