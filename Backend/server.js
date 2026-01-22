@@ -43,8 +43,9 @@ const app = express();
 
 app.use(cors({
   origin: "https://magenta-lollipop-6c2481.netlify.app",
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE"],
 }));
+
 app.use(express.json());
 
 app.use("/api/projects", require("./routes/projectRoutes"));
