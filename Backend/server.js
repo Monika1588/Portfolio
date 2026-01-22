@@ -2,6 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+import cors from "cors";
+// Allow frontend to access backend
+app.use(cors({
+  origin: "https://portfolio-1-nfdx.onrender.com",
+  credentials: true
+}));
 
 dotenv.config();
 connectDB();
