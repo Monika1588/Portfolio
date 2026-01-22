@@ -51,7 +51,7 @@ export default function Contact() {
         <h2 className="contact-heading">Contact</h2>
         <p className="contact-description">
           I’m open to full-time roles, internships, and collaborative projects.
-          Feel free to reach out for opportunities, discussions, or professional inquiries, and I’ll respond as soon as possible.
+          Feel free to reach out for opportunities, discussions, or professional inquiries.
         </p>
       </div>
 
